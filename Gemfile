@@ -12,5 +12,4 @@ group :development, :test do
   gem 'capybara'
   gem 'shotgun'
   gem 'database_cleaner'
-
 end

@@ -2,9 +2,24 @@
 <html>
 <head>
   <title>Will's Bookmark manager</title>
-  <link rel="stylesheet" type="text/css" href="./public/stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
 </head>
 <body>
   <header>Bookmark Manager</header>
+  <section id="input">
+    <form action="/" method="POST">
+      <input type="text" name="title" placeholder="Google">
+      <input type="text" name="url" placeholder="https://www.google.com">
+      <button type="submit">Add Bookmark</button>
+    </form>
+  </section>
+  <section>
+     <ul>
+      <% @links.each do |link| %>
+        <li><a href="<%= link.url %>"><%= link.title %></a></li>
+      <% end %>
+    </ul>
+  </section>
+
 </body>
 </html>

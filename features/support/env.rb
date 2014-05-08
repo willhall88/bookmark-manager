@@ -21,7 +21,7 @@ World do
   Bookmark_managerWorld.new
 end
 
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 
 Before do
   DatabaseCleaner.start  

@@ -13,3 +13,12 @@ Feature: View visits the Home Page
     And I fill in the "url" with "https://www.makersacademy.com"
     And I click "Add Bookmark"
     Then I should see "Makers Academy" in a link
+
+  Scenario: Adding a link with two tags
+    Given I am on the homepage
+    When I fill in the "title" with "Makers Academy"
+    And I fill in the "url" with "https://www.makersacademy.com"
+    And I fill in the "tag" with "codeschool, learning course"
+    And I click "Add Bookmark"
+    Then I should see "codeschool"
+    And I should see "learning course"

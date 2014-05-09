@@ -8,18 +8,30 @@
   <header>Bookmark Manager</header>
   <section id="input">
     <form action="/" method="POST">
-      <input type="text" name="title" placeholder="Google">
-      <input type="text" name="url" placeholder="https://www.google.com">
+      Title:<input type="text" name="title" placeholder="Google">
+      url:<input type="text" name="url" placeholder="https://www.google.com">
+      Tags:<input type="text" name="tag" placeholder="search engine">
       <button type="submit">Add Bookmark</button>
     </form>
   </section>
   <section>
-     <ul>
+
+      <thead>
+      <tr><th>Website</th><th>Tags</th></tr>
       <% @links.each do |link| %>
-        <li><a href="<%= link.url %>"><%= link.title %></a></li>
+        <tr>
+          <td><a href="<%= link.url %>"><%= link.title %></a></td>
+          <td>    <% link.tags.each do |tag| %>
+          <a><%= tag.name %></a></td>
+          <% end %>
+        </tr>
+          
+      
+        </thead>
       <% end %>
-    </ul>
+
   </section>
 
 </body>
 </html>
+

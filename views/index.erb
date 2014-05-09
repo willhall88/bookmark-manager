@@ -16,20 +16,19 @@
   </section>
   <section>
 
-      <thead>
+    <table>
       <tr><th>Website</th><th>Tags</th></tr>
-      <% @links.each do |link| %>
-        <tr>
-          <td><a href="<%= link.url %>"><%= link.title %></a></td>
+      <tr><% @links.each do |link| %>
+          <td>
+            <a href="<%= link.url %>"><%= link.title %></a>
+          </td>
           <td>    <% link.tags.each do |tag| %>
-          <a><%= tag.name %></a></td>
-          <% end %>
-        </tr>
-          
-      
-        </thead>
-      <% end %>
-
+            <a><%= tag.name %></a>
+            <% end %>
+          </td> 
+      </tr>
+      <% end %>    
+    </table>
   </section>
 
 </body>

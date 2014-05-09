@@ -22,3 +22,10 @@ Feature: View visits the Home Page
     And I click "Add Bookmark"
     Then I should see "codeschool"
     And I should see "learning course"
+
+
+
+  Scenario: sorting all links
+    Given I have three links and two of the links with the tag 'search'
+    When I press the "search" tag
+    Then I should see a page with only the links associated with that tag

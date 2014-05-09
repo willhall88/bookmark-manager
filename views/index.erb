@@ -15,7 +15,6 @@
     </form>
   </section>
   <section>
-
     <table>
       <tr><th>Website</th><th>Tags</th></tr>
       <tr><% @links.each do |link| %>
@@ -23,7 +22,9 @@
             <a href="<%= link.url %>"><%= link.title %></a>
           </td>
           <td>    <% link.tags.each do |tag| %>
-            <a><%= tag.name %></a>
+
+            <a href="/tags/<%= tag.name %>"><button type="submit"><%= tag.name %></button></a>
+
             <% end %>
           </td> 
       </tr>

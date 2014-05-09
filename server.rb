@@ -19,12 +19,16 @@ class Bookmark_manager < Sinatra::Base
     erb :index
   end
 
-  post '/' do
+  get '/tags/:name' do
+    tag = Tag.first(:name => params[:name])
+    @links = tag ? tag.links : []
+    erb :index
+  end
 
-    tags = params["tag"].to_s.split(",").map{|tag| Tag.first_or_create(:name => tag)}
+  post '/' do
+    tags = params["tag"].split(",").map{|tag| Tag.first_or_create(:name => tag)}
     Link.create(:url => params["url"], :title => params["title"], :tags => tags)
     redirect to('/')
   end
 
-  
 end

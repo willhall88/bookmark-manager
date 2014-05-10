@@ -24,7 +24,6 @@ Feature: View visits the Home Page
     And I should see "learning course"
 
 
-
   Scenario: sorting all links
     Given I have three links and two of the links with the tag 'search'
     When I press the "search" tag

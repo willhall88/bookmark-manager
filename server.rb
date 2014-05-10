@@ -7,6 +7,7 @@ env = ENV["RACK_ENV"] || "development"
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 require './lib/link'
 require './lib/tag'
+require './lib/user'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
@@ -24,6 +25,17 @@ class Bookmark_manager < Sinatra::Base
     # puts "I am here"
     @links = tag ? tag.links : []
     erb :index
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    User.create(:name => params[:name], 
+                :email => params[:email], 
+                :password => params[:password])
+    redirect to ('/')
   end
 
   post '/' do

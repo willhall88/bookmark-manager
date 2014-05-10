@@ -22,8 +22,6 @@
             <a href="<%= link.url %>"><%= link.title %></a>
           </td>
           <td>    <% link.tags.each do |tag| %>
-
-    
             <form action="/tags/<%= tag.name %>">
                 <button type="submit"><%= tag.name %></button>
             </form>
@@ -32,6 +30,12 @@
       </tr>
       <% end %>    
     </table>
+  </section>
+  <section id='login'>
+    <form action="/users/new">
+      <button type="submit">Sign Up</button>
+    </form>
+
   </section>
 
 </body>

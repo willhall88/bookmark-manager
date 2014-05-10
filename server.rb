@@ -1,15 +1,10 @@
 require 'sinatra/base'
 require 'data_mapper'
-
-
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 require './lib/link'
 require './lib/tag'
 require './lib/user'
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require './data_mapper_setup'
+
 
 
 
@@ -49,12 +44,14 @@ class Bookmark_manager < Sinatra::Base
     redirect to('/')
   end
 
-helpers do
+  helpers do
 
-  def current_user    
-    @current_user ||=User.get(session[:user_id]) if session[:user_id]
+    def current_user    
+      @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    end
+
   end
 
-end
+
 end
 

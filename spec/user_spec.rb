@@ -22,15 +22,9 @@ describe User do
     expect(User.count).to eq 0
   end
 
-    it "should have a password when it is created" do
-    expect(User.count).to eq 0
-    User.create(:name =>"Will", 
-                :email => "willhall88@hotmail.com", 
-                :password => password=("l"))
-    expect(User.count).to eq 1
-    user = User.first
-    expect(user.password_digest).to be_an String
-    user.destroy
-    expect(User.count).to eq 0
-  end
+    it 'sign up does not occur if passwords do not match' do 
+        expect(User.count).to eq (0)
+        user = User.create(:name => "Will", :email => "willhall88@hotmail.com", :password => "password123", :password_confirmation => "password456")
+        expect(User.count).to eq (0)
+    end
 end

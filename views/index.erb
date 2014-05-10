@@ -23,8 +23,10 @@
           </td>
           <td>    <% link.tags.each do |tag| %>
 
-            <a href="/tags/<%= tag.name %>"><button type="submit"><%= tag.name %></button></a>
-
+    
+            <form action="/tags/<%= tag.name %>">
+                <button type="submit"><%= tag.name %></button>
+            </form>
             <% end %>
           </td> 
       </tr>

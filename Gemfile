@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 group :development, :test do
   gem 'cucumber-sinatra'
   gem 'rspec'
+  gem 'launchy'
   gem 'capybara'
   gem 'shotgun'
   gem 'database_cleaner'

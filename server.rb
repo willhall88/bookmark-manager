@@ -14,9 +14,13 @@ DataMapper.auto_upgrade!
 
 
 class Bookmark_manager < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'this is secret'
+
   get '/' do
     @links = Link.all
     @tags = Tag.all
+
     erb :index
   end
 
@@ -32,9 +36,10 @@ class Bookmark_manager < Sinatra::Base
   end
 
   post '/users' do
-    User.create(:name => params[:name], 
+    user = User.create(:name => params[:name], 
                 :email => params[:email], 
                 :password => params[:password])
+    session[:user_id] = user.id
     redirect to ('/')
   end
 
@@ -44,4 +49,12 @@ class Bookmark_manager < Sinatra::Base
     redirect to('/')
   end
 
+helpers do
+
+  def current_user    
+    @current_user ||=User.get(session[:user_id]) if session[:user_id]
+  end
+
 end
+end
+

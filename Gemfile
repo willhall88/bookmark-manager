@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
+gem 'bcrypt-ruby'
 
 group :development, :test do
   gem 'cucumber-sinatra'

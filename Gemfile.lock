@@ -109,6 +109,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bcrypt-ruby
   capybara
   cucumber-sinatra
   data_mapper
